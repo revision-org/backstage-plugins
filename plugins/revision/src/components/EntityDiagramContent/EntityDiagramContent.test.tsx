@@ -7,7 +7,7 @@ import {
   setupRequestMockHandlers,
   renderInTestApp,
 } from '@backstage/test-utils';
-import { EntityRevisionContent } from '.';
+import { EntityDiagramContent } from './EntityDiagramContent';
 
 describe('ExampleComponent', () => {
   const server = setupServer();
@@ -22,7 +22,7 @@ describe('ExampleComponent', () => {
   });
 
   it('should render', async () => {
-    await renderInTestApp(<EntityRevisionContent />);
+    await renderInTestApp(<EntityDiagramContent />);
     expect(
       screen.getByText('Welcome to revision-diagram!'),
     ).toBeInTheDocument();

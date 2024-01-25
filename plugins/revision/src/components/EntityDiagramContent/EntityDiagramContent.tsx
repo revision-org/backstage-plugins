@@ -1,13 +1,11 @@
-import { InfoCard } from '@backstage/core-components';
 import { configApiRef, useApi } from '@backstage/core-plugin-api';
 import { useEntity } from '@backstage/plugin-catalog-react';
-import { Box, Button, Grid, Icon } from '@material-ui/core';
 
 import React, { useEffect, useState } from 'react';
 
 import { Diagram } from '../Diagram/Diagram';
-import { NotFound } from '../Diagram/NotFound';
 import { MissingAnnotation } from '../Diagram/MissingAnnotation';
+import { NotFound } from '../Diagram/NotFound';
 
 export const EntityDiagramContent = () => {
   const entity = useEntity();
@@ -49,15 +47,13 @@ export const EntityDiagramContent = () => {
     asyncFetchImage();
   }, [backendBaseUrl, preferredDiagramSlug, revisionSvgUrl]);
 
-  console.log('STATUS', status);
-  console.log('IMAGE', image);
-
   // If we don't have a configured annotation we'll show a message about that
   if (!preferredDiagramSlug) {
     return <MissingAnnotation />;
   }
 
-  if (status === 'loading') return <Box>Getting the image from Revision</Box>;
+  if (status === 'loading')
+    return <div>Loading diagram image from Revision</div>;
 
   if (status === 404)
     return (
