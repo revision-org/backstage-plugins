@@ -57,6 +57,7 @@ import {
 
 import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
+import { EntityRevisionDiagramContent } from '@revision/backstage-revision-plugin';
 
 const techdocsContent = (
   <EntityTechdocsContent>
@@ -201,6 +202,10 @@ const websiteEntityPage = (
 
     <EntityLayout.Route path="/docs" title="Docs">
       {techdocsContent}
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/diagrams" title="Diagram">
+      <EntityRevisionDiagramContent />
     </EntityLayout.Route>
   </EntityLayout>
 );
