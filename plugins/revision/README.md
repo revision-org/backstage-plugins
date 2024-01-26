@@ -2,7 +2,7 @@
 
 The Revision plugin displays diagrams from [Revision](https://revision.app).
 
-![Revision diagram](./docs/entity-content.png "Revision diagram")
+![Revision diagram](https://raw.githubusercontent.com/revision-org/backstage-plugins/main/plugins/revision/docs/entity-content.png?token=GHSAT0AAAAAACMIHK3NSCRHFJPATIJSMY7UZNTW5TA "Revision diagram")
 
 ## Getting started
 
@@ -38,12 +38,11 @@ const serviceEntityPage = (
 # app-config.yaml
 
 proxy:
-    '/revision':
-        target: https://my.revision.app
+  '/revision':
+    target: https://my.revision.app
 
 revision:
-    baseUrl: https://my.revision.app
-
+  baseUrl: https://my.revision.app
 ```
 
 4. Add the `revision.app/preferred-diagram-slug` annotation to your catalog-info.yaml file:
