@@ -7,9 +7,9 @@ import {
   setupRequestMockHandlers,
   renderInTestApp,
 } from '@backstage/test-utils';
-import { EntityDiagramContent } from './EntityDiagramContent';
+import { EntityRevisionContent } from './EntityRevisionContent';
 
-describe('ExampleComponent', () => {
+describe('EntityRevisionContent', () => {
   const server = setupServer();
   // Enable sane handlers for network requests
   setupRequestMockHandlers(server);
@@ -22,7 +22,7 @@ describe('ExampleComponent', () => {
   });
 
   it('should render', async () => {
-    await renderInTestApp(<EntityDiagramContent />);
+    await renderInTestApp(<EntityRevisionContent />);
     expect(
       screen.getByText('Welcome to revision-diagram!'),
     ).toBeInTheDocument();

@@ -1,0 +1,1 @@
+export { EntityRevisionContent } from './EntityRevisionContent';

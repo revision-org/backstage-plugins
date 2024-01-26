@@ -1,1 +1,1 @@
-export { revisionDiagramPlugin, EntityRevisionDiagramContent } from './plugin';
+export { revisionPlugin, EntityRevisionContent } from './plugin';

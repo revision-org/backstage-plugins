@@ -1,12 +1,12 @@
 import React from 'react';
 import { createDevApp } from '@backstage/dev-utils';
-import { revisionDiagramPlugin, RevisionDiagramPage } from '../src/plugin';
+import { revisionPlugin, EntityRevisionContent } from '../src/plugin';
 
 createDevApp()
-  .registerPlugin(revisionDiagramPlugin)
+  .registerPlugin(revisionPlugin)
   .addPage({
-    element: <RevisionDiagramPage />,
+    element: <EntityRevisionContent />,
     title: 'Root Page',
-    path: '/revision-diagram'
+    path: '/revision-diagram',
   })
   .render();

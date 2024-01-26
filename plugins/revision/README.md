@@ -1,13 +1,64 @@
-# revision-diagram
+# Revision Plugin
 
-Welcome to the revision-diagram plugin!
+The Revision plugin displays diagrams from [Revision](https://revision.app).
 
-_This plugin was created through the Backstage CLI_
+![Revision diagram](./docs/entity-content.png "Revision diagram")
 
 ## Getting started
 
-Your plugin has been added to the example app in this repository, meaning you'll be able to access it by running `yarn start` in the root directory, and then navigating to [/revision-diagram](http://localhost:3000/revision-diagram).
+1. Install the Revision plugin
 
-You can also serve the plugin in isolation by running `yarn start` in the plugin directory.
-This method of serving the plugin provides quicker iteration speed and a faster startup and hot reloads.
-It is only meant for local development, and the setup for it can be found inside the [/dev](./dev) directory.
+```bash
+# From your Backstage root directory
+
+yarn add --cwd packages/app @revisionapp/backstage-revision-plugin
+```
+
+2. Add the EntitySentryCard to the EntityPage
+
+```javascript
+// packages/app/src/components/catalog/EntityPage.tsx
+
+import { EntityRevisionContent } from '@revisionapp/backstage-revision-plugin';
+
+const serviceEntityPage = (
+  <EntityLayout>
+    // ...
+    <EntityLayout.Route path="/sentry" title="Sentry">
+      <EntityRevisionContent />
+    </EntityLayout.Route>
+    // ...
+  </EntityLayout>
+);
+```
+
+3. Add the proxy config and Revision base url
+
+```yaml
+# app-config.yaml
+
+proxy:
+    '/revision':
+        target: https://my.revision.app
+
+revision:
+    baseUrl: https://my.revision.app
+
+```
+
+4. Add the `revision.app/preferred-diagram-slug` annotation to your catalog-info.yaml file:
+
+```yaml
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: backstage
+  description: |
+    Backstage is an open-source developer portal that puts the developer experience first.
+  annotations:
+    revision.app/preferred-diagram-slug: YOUR_DIAGRAM_SLUG
+spec:
+  type: library
+  owner: CNCF
+  lifecycle: experimental
+```

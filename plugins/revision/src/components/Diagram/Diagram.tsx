@@ -1,5 +1,5 @@
 import { InfoCard } from '@backstage/core-components';
-import { Button, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import React from 'react';
 import { RevisionButton } from '../Button/RevisionButton';
 

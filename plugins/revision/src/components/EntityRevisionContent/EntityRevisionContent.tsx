@@ -7,7 +7,7 @@ import { Diagram } from '../Diagram/Diagram';
 import { MissingAnnotation } from '../Diagram/MissingAnnotation';
 import { NotFound } from '../Diagram/NotFound';
 
-export const EntityDiagramContent = () => {
+export const EntityRevisionContent = () => {
   const entity = useEntity();
   const config = useApi(configApiRef);
 
@@ -22,7 +22,7 @@ export const EntityDiagramContent = () => {
   const backendBaseUrl = config.getString('backend.baseUrl');
 
   // Base url to Revision so we can get the link to work
-  const revisionBaseUrl = config.getString('integrations.revision.baseUrl');
+  const revisionBaseUrl = config.getString('revision.baseUrl');
 
   // Url to get the imgage
   const revisionSvgUrl = `${backendBaseUrl}/api/proxy/revision/api/svg/${preferredDiagramSlug}`;
