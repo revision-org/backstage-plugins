@@ -24,7 +24,7 @@ import { EntityRevisionContent } from '@revisionapp/backstage-revision-plugin';
 const serviceEntityPage = (
   <EntityLayout>
     // ...
-    <EntityLayout.Route path="/sentry" title="Sentry">
+    <EntityLayout.Route path="/revision-diagram" title="Diagram">
       <EntityRevisionContent />
     </EntityLayout.Route>
     // ...
