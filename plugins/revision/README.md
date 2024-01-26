@@ -2,7 +2,7 @@
 
 The Revision plugin displays diagrams from [Revision](https://revision.app).
 
-![Revision diagram](https://raw.githubusercontent.com/revision-org/backstage-plugins/main/plugins/revision/docs/entity-content.png?token=GHSAT0AAAAAACMIHK3NSCRHFJPATIJSMY7UZNTW5TA "Revision diagram")
+![Revision diagram](docs/entity-content.png "Revision diagram")
 
 ## Getting started
 

@@ -1,6 +1,6 @@
 {
   "name": "@revisionapp/backstage-revision-plugin",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "description": "Backstage plugin for diagrams and visualizations in Revision",
   "homepage": "https://revision.app",
   "main": "dist/index.esm.js",
@@ -9,7 +9,7 @@
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/revision-org/backstage-plugins.git",
+    "url": "https://github.com/revision-org/backstage-plugins",
     "directory": "plugins/revision"
   },
   "publishConfig": {
