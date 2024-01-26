@@ -1,7 +1,7 @@
-import { revisionDiagramPlugin } from './plugin';
+import { revisionPlugin } from './plugin';
 
 describe('revision-diagram', () => {
   it('should export plugin', () => {
-    expect(revisionDiagramPlugin).toBeDefined();
+    expect(revisionPlugin).toBeDefined();
   });
 });

@@ -4,19 +4,19 @@ import {
 } from '@backstage/core-plugin-api';
 import { rootRouteRef } from './routes';
 
-export const revisionDiagramPlugin = createPlugin({
+export const revisionPlugin = createPlugin({
   id: 'revision',
   routes: {
     root: rootRouteRef,
   },
 });
 
-export const EntityRevisionDiagramContent = revisionDiagramPlugin.provide(
+export const EntityRevisionContent = revisionPlugin.provide(
   createRoutableExtension({
-    name: 'RevisionDiagramPage',
+    name: 'EntityRevisionContent',
     component: () =>
-      import('./components/EntityDiagramContent').then(
-        m => m.EntityDiagramContent,
+      import('./components/EntityRevisionContent').then(
+        m => m.EntityRevisionContent,
       ),
     mountPoint: rootRouteRef,
   }),
