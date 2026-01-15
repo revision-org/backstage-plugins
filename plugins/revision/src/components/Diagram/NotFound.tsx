@@ -13,7 +13,7 @@ export const NotFound = (props: Props) => {
         <Grid item style={{ flexGrow: 1 }}>
           <Grid container direction="column" spacing={2}>
             <Grid item>
-              <Typography variant="h5">Diagram not found (405)</Typography>
+              <Typography variant="h5">Diagram not found (404)</Typography>
             </Grid>
             <Grid item>
               <Typography variant="body1">
