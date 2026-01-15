@@ -45,7 +45,8 @@ revision:
   baseUrl: https://my.revision.app
 ```
 
-4. Add the `revision.app/preferred-diagram-slug` annotation to your catalog-info.yaml file:
+4. Add the `revision.app/preferred-diagram-slug` annotation to your catalog-info.yaml file,
+optionally along with your organiza
 
 ```yaml
 apiVersion: backstage.io/v1alpha1
@@ -55,7 +56,8 @@ metadata:
   description: |
     Backstage is an open-source developer portal that puts the developer experience first.
   annotations:
-    revision.app/preferred-diagram-slug: YOUR_DIAGRAM_SLUG
+    revision.app/api-key: YOUR_ORGANIZATION_API_KEY
+    revision.app/diagram-slug: YOUR_DIAGRAM_SLUG
 spec:
   type: library
   owner: CNCF

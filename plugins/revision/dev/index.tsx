@@ -1,6 +1,5 @@
-import React from 'react';
 import { createDevApp } from '@backstage/dev-utils';
-import { revisionPlugin, EntityRevisionContent } from '../src/plugin';
+import { EntityRevisionContent, revisionPlugin } from '../src/plugin';
 
 createDevApp()
   .registerPlugin(revisionPlugin)

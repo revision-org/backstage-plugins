@@ -13,7 +13,7 @@ kind: Component
 metadata:
   name: EmployeeService
   annotations:
-    revision.app/preferred-diagram-slug: hzWULbREwZhR
+    revision.app/diagram-slug: hzWULbREwZhR
 spec:
   type: service
   lifecycle: experimental

@@ -1,5 +1,4 @@
 import { Grid, Typography } from '@material-ui/core';
-import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { a11yLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
