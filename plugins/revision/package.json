@@ -1,7 +1,7 @@
 {
   "name": "@revisionapp/backstage-revision-plugin",
-  "version": "0.5.1",
-  "description": "Backstage plugin for diagrams and visualizations in Revision",
+  "version": "0.5.3",
+  "description": "Backstage plugin for displaying Revision diagrams",
   "homepage": "https://revision.app",
   "main": "dist/index.esm.js",
   "types": "dist/index.d.ts",

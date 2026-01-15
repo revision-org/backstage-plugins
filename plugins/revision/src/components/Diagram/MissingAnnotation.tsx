@@ -4,7 +4,7 @@ import { a11yLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 export const MissingAnnotation = () => {
   return (
-    <Grid container spacing={2}>
+    <Grid container direction="column" spacing={2}>
       <Grid item xs={12} md={6}>
         <Typography variant="h5">Missing Annotation</Typography>
       </Grid>
