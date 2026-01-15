@@ -7,5 +7,10 @@ export interface Config {
      * @visibility frontend
      */
     baseUrl: string;
+    /**
+     * The API key for authenticating with Revision.
+     * @visibility frontend
+     */
+    apiKey?: string;
   };
 }

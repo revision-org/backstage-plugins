@@ -2,11 +2,11 @@
 
 The Revision plugin displays diagrams from [Revision](https://revision.app).
 
-![Revision diagram](docs/entity-content.png "Revision diagram")
+![Revision diagram](docs/entity-content.png 'Revision diagram')
 
 ## Getting started
 
-1. Install the Revision plugin
+1. Install the Revision plugin:
 
 ```bash
 # From your Backstage root directory
@@ -14,7 +14,7 @@ The Revision plugin displays diagrams from [Revision](https://revision.app).
 yarn add --cwd packages/app @revisionapp/backstage-revision-plugin
 ```
 
-2. Add the EntitySentryCard to the EntityPage
+2. Add the EntitySentryCard to the EntityPage:
 
 ```javascript
 // packages/app/src/components/catalog/EntityPage.tsx
@@ -32,23 +32,24 @@ const serviceEntityPage = (
 );
 ```
 
-3. Add the proxy config and Revision base url
+3. Add the proxy config and Revision base url:
 
 ```yaml
 # app-config.yaml
 
 proxy:
   '/revision':
-    target: https://my.revision.app
+    target: https://<your-organization>.revision.app
 
 revision:
-  baseUrl: https://my.revision.app
+  baseUrl: https://<your-organization>.revision.app
 ```
 
-4. Add the `revision.app/preferred-diagram-slug` annotation to your catalog-info.yaml file,
-optionally along with your organiza
+4. Add the `revision.app/diagram-slug` annotation to your catalog-info.yaml file:
 
 ```yaml
+# catalog-info.yaml
+
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
@@ -63,3 +64,5 @@ spec:
   owner: CNCF
   lifecycle: experimental
 ```
+
+5. Set your Revision organization's API key, located under "Settings" > "Security" in Revision (requires administrator access), as an environmental variable called `REVISION_API_KEY`.

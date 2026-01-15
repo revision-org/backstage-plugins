@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { Diagram } from '../Diagram/Diagram';
 import { MissingAnnotation } from '../Diagram/MissingAnnotation';
 import { NotFound } from '../Diagram/NotFound';
+import { Unauthorized } from '../Diagram/Unauthorized';
 
 export const EntityRevisionContent = () => {
   const entity = useEntity();
@@ -15,8 +16,8 @@ export const EntityRevisionContent = () => {
 
   const [image, setImage] = useState<string>();
 
-  const preferredDiagramSlug =
-    entity.entity.metadata.annotations?.['revision.app/preferred-diagram-slug'];
+  const diagramSlug =
+    entity.entity.metadata.annotations?.['revision.app/diagram-slug'];
 
   // The backend baseurl for the proxy
   const backendBaseUrl = config.getString('backend.baseUrl');
@@ -24,18 +25,22 @@ export const EntityRevisionContent = () => {
   // Base url to Revision so we can get the link to work
   const revisionBaseUrl = config.getString('revision.baseUrl');
 
-  // Url to get the imgage
-  const revisionSvgUrl = `${backendBaseUrl}/api/proxy/revision/api/svg/${preferredDiagramSlug}`;
+  // Use proxy to avoid CORS issues
+  const revisionSvgUrl = `${backendBaseUrl}/api/proxy/revision/api/external/diagrams/${diagramSlug}`;
 
   /**
    * Getting the image from the Revision api
    * */
   useEffect(() => {
-    if (!preferredDiagramSlug) return;
+    if (!diagramSlug) return;
 
     const asyncFetchImage = async () => {
-      const result = await fetch(revisionSvgUrl);
+      const headers: HeadersInit = {
+        Accept: 'image/svg+xml',
+      };
 
+      // The proxy will add the Authorization header
+      const result = await fetch(revisionSvgUrl, { headers });
       setStatus(result.status);
 
       if (result.status === 200) {
@@ -45,10 +50,10 @@ export const EntityRevisionContent = () => {
     };
 
     asyncFetchImage();
-  }, [backendBaseUrl, preferredDiagramSlug, revisionSvgUrl]);
+  }, [diagramSlug, revisionSvgUrl]);
 
   // If we don't have a configured annotation we'll show a message about that
-  if (!preferredDiagramSlug) {
+  if (!diagramSlug) {
     return <MissingAnnotation />;
   }
 
@@ -57,8 +62,13 @@ export const EntityRevisionContent = () => {
 
   if (status === 404)
     return (
-      <NotFound
-        preferredDiagramSlug={preferredDiagramSlug}
+      <NotFound diagramSlug={diagramSlug} revisionBaseUrl={revisionBaseUrl} />
+    );
+
+  if (status === 401)
+    return (
+      <Unauthorized
+        diagramSlug={diagramSlug}
         revisionBaseUrl={revisionBaseUrl}
       />
     );
@@ -68,7 +78,7 @@ export const EntityRevisionContent = () => {
       revisionBaseUrl={revisionBaseUrl}
       backendBaseUrl={backendBaseUrl}
       image={image}
-      preferredDiagramSlug={preferredDiagramSlug}
+      diagramSlug={diagramSlug}
     />
   );
 };

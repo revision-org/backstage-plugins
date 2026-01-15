@@ -5,7 +5,7 @@ import { RevisionButton } from '../Button/RevisionButton';
 type Props = {
   image: string | undefined;
   backendBaseUrl: string;
-  preferredDiagramSlug: string;
+  diagramSlug: string;
   revisionBaseUrl: string;
 };
 
@@ -14,25 +14,40 @@ export const Diagram = (props: Props) => {
 
   return (
     <Grid style={{ margin: 2 }} container>
-      <Grid xs={12}>
+      <Grid item xs={12}>
         <InfoCard
           title={
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
               <div>Entity diagram</div>
 
               <div>
                 <RevisionButton
                   revisionBaseUrl={props.revisionBaseUrl}
-                  preferredDiagramSlug={props.preferredDiagramSlug}
+                  diagramSlug={props.diagramSlug}
                 />
               </div>
             </div>
           }
         >
-          <img
-            alt="Revision diagram"
-            src={`data:image/svg+xml;utf8,${encodeURIComponent(props.image)}`}
-          />
+          <div
+            style={{
+              width: '100%',
+              backgroundColor: '#f5f5f5',
+              borderRadius: '2px',
+            }}
+          >
+            <img
+              style={{ maxHeight: 'calc(100dvh - 350px)', width: '100%' }}
+              alt="Revision diagram"
+              src={`data:image/svg+xml;utf8,${encodeURIComponent(props.image)}`}
+            />
+          </div>
         </InfoCard>
       </Grid>
     </Grid>

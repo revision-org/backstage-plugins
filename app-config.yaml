@@ -52,6 +52,8 @@ proxy:
     '/revision':
       target: https://my.revision.app
       # changeOrigin: true
+      headers:
+        Authorization: 'Bearer ${REVISION_API_KEY}'
 
 # Reference documentation http://backstage.io/docs/features/techdocs/configuration
 # Note: After experimenting with basic setup, use CI/CD to generate docs
