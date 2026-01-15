@@ -32,20 +32,22 @@ const serviceEntityPage = (
 );
 ```
 
-3. Add the proxy config and Revision base url:
+3. Add the proxy config and Revision base url to your app config:
 
 ```yaml
 # app-config.yaml
 
 proxy:
-  '/revision':
-    target: https://<your-organization>.revision.app
-
+  endpoints:
+    '/revision':
+      target: https://<your-organization>.revision.app
+      headers:
+        Authorization: 'Bearer ${REVISION_API_KEY}'
 revision:
   baseUrl: https://<your-organization>.revision.app
 ```
 
-4. Add the `revision.app/diagram-slug` annotation to your catalog-info.yaml file:
+4. Add the `revision.app/diagram-slug` annotation to your catalog info file:
 
 ```yaml
 # catalog-info.yaml
@@ -57,7 +59,6 @@ metadata:
   description: |
     Backstage is an open-source developer portal that puts the developer experience first.
   annotations:
-    revision.app/api-key: YOUR_ORGANIZATION_API_KEY
     revision.app/diagram-slug: YOUR_DIAGRAM_SLUG
 spec:
   type: library
