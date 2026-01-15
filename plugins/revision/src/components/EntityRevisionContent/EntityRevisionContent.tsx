@@ -17,7 +17,8 @@ export const EntityRevisionContent = () => {
   const [image, setImage] = useState<string>();
 
   const diagramSlug =
-    entity.entity.metadata.annotations?.['revision.app/diagram-slug'];
+    entity.entity.metadata.annotations?.['revision.app/diagram-slug'] ??
+    entity.entity.metadata.annotations?.['revision.app/preferred-diagram-slug']; // legacy name fallback
 
   // The backend baseurl for the proxy
   const backendBaseUrl = config.getString('backend.baseUrl');

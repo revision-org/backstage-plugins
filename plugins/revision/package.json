@@ -1,6 +1,6 @@
 {
   "name": "@revisionapp/backstage-revision-plugin",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Backstage plugin for diagrams and visualizations in Revision",
   "homepage": "https://revision.app",
   "main": "dist/index.esm.js",
@@ -8,7 +8,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/revision-org/backstage-plugins",
+    "url": "git+https://github.com/revision-org/backstage-plugins.git",
     "directory": "plugins/revision"
   },
   "publishConfig": {
@@ -17,7 +17,11 @@
     "types": "dist/index.d.ts"
   },
   "backstage": {
-    "role": "frontend-plugin"
+    "role": "frontend-plugin",
+    "pluginId": "revision",
+    "pluginPackages": [
+      "@revisionapp/backstage-revision-plugin"
+    ]
   },
   "sideEffects": false,
   "scripts": {
